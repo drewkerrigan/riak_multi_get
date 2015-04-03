@@ -33,6 +33,7 @@ setup_http() ->
     [webmachine_router:add_route(R) || R <- http_routes()].
 
 %% @private
+%% http://127.0.0.1:8098/types/my_type/buckets/my_bucket/multi?keys=key1,key2,key3
 http_routes() ->
      [{["types", bucket_type, "buckets", bucket, "multi"],
       mg_wm_query, [{api_version, 3}]}].

@@ -64,7 +64,8 @@ context_from(ReqData, Context) ->
     try
         Type = list_to_binary(wrq:path_info(bucket_type, ReqData)),
         Bucket = list_to_binary(wrq:path_info(bucket, ReqData)),
-        Keys = list_to_integer(wrq:get_qs_value("keys",ReqData)),
+        KeyStr = list_to_integer(wrq:get_qs_value("keys",ReqData)),
+        Keys = string:tokens(KeyStr,","),
 
         Context#ctx{
             type = Type,
