@@ -1,0 +1,13 @@
+{ application, riak_multi_get,
+  [ { description, "Multi Get" },
+    { vsn, "v0.0.1" },
+    { registered, [] },
+    { applications, [
+        kernel,
+        stdlib,
+        riak_core,
+        riak_kv] },
+    {mod, { mg_app, []}},
+    { env, [] }
+  ]
+}.
